@@ -17,6 +17,13 @@ export class AppComponent implements OnInit {
 
   ngOnInit(){
     console.table(this.pokemonList);
+    //On teste ici l'appel de la méthode
+    this.selectPokemon('Bulbizarre')
     
+  }
+  //On peut déclarer des méthodes dans la classe de nos composants
+  selectPokemon(pokemonName:string){
+    //syntaxe qui évite la concétanisation et gère les espaces
+    console.log(`Vous avez cliqué sur le pokémon ${pokemonName}`);
   }
 }
