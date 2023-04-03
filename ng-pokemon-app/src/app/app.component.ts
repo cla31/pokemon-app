@@ -1,5 +1,5 @@
 //import des éléments dont on va avoir besoin dans notre fichier
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 //On utilise l'importation sous la forme d'un décorateur, ça va
 // permettre de construire un composant web avec angular.
@@ -10,8 +10,13 @@ import { Component } from '@angular/core';
 //Il affiche la propriété title de l'AppComponent qu'angular va pousser ds le template
 @Component({
   selector: 'app-root',
-  template: `<h1> Welcome to {{title}}!</h1>`
+  template: `<h1> Welcome to {{pokemonList[1]}}!</h1>`
 })
-export class AppComponent {
-  title = 'ng-pokemon-app';
+export class AppComponent implements OnInit {
+  pokemonList = ['Bulbizarre','Salamèche','Carapuce'];
+
+  ngOnInit(){
+    console.table(this.pokemonList);
+    
+  }
 }
