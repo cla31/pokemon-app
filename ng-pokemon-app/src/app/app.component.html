@@ -1,8 +1,11 @@
 <!-- Pour l'instant ce template bn'est pas lié avec la logique métier côté type script. -->
 <!-- Pour cela on va utiliser l'interpolation pour afficher la iste des pokémons, avec leur noms -->
 <h1>Liste de Pokémons</h1>
-<!-- Pour que cela fonctione; il faut changer le contrat d'interface. -->
-<input type="number" (click)="selectPokemon($event)">
+<!-- Grâce au #, on a plus besoin de caster -->
+<!-- Keyup= pour pousser la valeur dans l'interpolation "input.value" -->
+<input #input (keyup)="0" type="text">
+<!-- On affiche directement le contenu -->
+<p>{{input.value}}</p>
 <p>{{pokemonList[0].name}}</p>
 <p>{{pokemonList[1].name}}</p>
 <p>{{pokemonList[2].name}}</p>
