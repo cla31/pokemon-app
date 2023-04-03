@@ -13,11 +13,15 @@ export class AppComponent implements OnInit {
   pokemonList:Pokemon[] = POKEMONS;  //On indique que Pokemon est un tableau
 
   ngOnInit(){
-    console.table(this.pokemonList);
-    this.selectPokemon(this.pokemonList[0]);
-    
+    console.table(this.pokemonList);  
   }
-  selectPokemon(pokemon:Pokemon){
-    console.log(`Vous avez cliqué sur le pokémon ${pokemon.name}`);
+  //Avec l'input ds le template, changement du contrat d'interface:
+  selectPokemon(event:MouseEvent){
+    //On est obligé de caster l'évènemement en HTMLInputElement (propre à Angular)
+    // Le "+" transforme tout ce qui est à droite en un NonNullableFormBuilder.
+    const index:number=+(event.target as HTMLInputElement).value;
+    //On demande l'index qu'à passé l'utilisateur:
+    // Je rentre un nombre, je clique sur le nombre, et le Pokémon de la liste s'affiche
+    console.log(`Vous avez cliqué sur le pokémon ${this.pokemonList[index].name}`);
   }
 }
